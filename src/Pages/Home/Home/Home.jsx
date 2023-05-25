@@ -3,6 +3,8 @@ import Banner from "../Banner/Banner";
 import Category from "../Category/Category";
 import BgImage from "../BgImage/BgImage";
 import Menu from "../Menu/Menu";
+import Featured from "../Featured/Featured";
+import Reviews from "../Reviews/Reviews";
 
 const Home = () => {
   return (
@@ -11,6 +13,8 @@ const Home = () => {
       <Category />
       <BgImage />
       <Menu />
+      <Featured />
+      <Reviews />
     </div>
   );
 };
