@@ -23,6 +23,11 @@ const Menu = () => {
           <MenuItem key={item._id} item={item}></MenuItem>
         ))}
       </div>
+      <div className="justify-center ms-96">
+        <button className="btn btn-outline border-0 mt-4 border-b-4 mx-auto ">
+          View Full Menu
+        </button>
+      </div>
     </section>
   );
 };

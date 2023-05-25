@@ -5,6 +5,8 @@ import BgImage from "../BgImage/BgImage";
 import Menu from "../Menu/Menu";
 import Featured from "../Featured/Featured";
 import Reviews from "../Reviews/Reviews";
+import Contact from "../Contact/Contact";
+import MenuCard from "../MenuCard/MenuCard";
 
 const Home = () => {
   return (
@@ -13,6 +15,8 @@ const Home = () => {
       <Category />
       <BgImage />
       <Menu />
+      <Contact />
+      <MenuCard />
       <Featured />
       <Reviews />
     </div>

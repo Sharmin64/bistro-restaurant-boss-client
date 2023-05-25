@@ -6,6 +6,7 @@ import { Navigation } from "swiper";
 import "swiper/css";
 import "swiper/css/navigation";
 import { Rating } from "@smastrom/react-rating";
+import { FaQuoteLeft } from "react-icons/fa";
 
 import "@smastrom/react-rating/style.css";
 
@@ -31,6 +32,7 @@ const Reviews = () => {
                 value={review.rating}
                 readOnly
               />
+              <FaQuoteLeft style={{ fontSize: "4rem" }}></FaQuoteLeft>
               <p className="py-8">{review.details}</p>
               <h3 className="text-2xl text-orange-400">{review.name}</h3>
             </div>
