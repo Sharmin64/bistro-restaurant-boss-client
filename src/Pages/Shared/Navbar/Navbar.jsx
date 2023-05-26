@@ -10,6 +10,9 @@ const Navbar = () => {
       <li>
         <Link to="/menu">Our MenuBar</Link>
       </li>
+      <li>
+        <Link to="/order">Order Food</Link>
+      </li>
     </>
   );
   return (
@@ -39,7 +42,9 @@ const Navbar = () => {
             {navPatarn}
           </ul>
         </div>
-        <a className="btn btn-ghost normal-case text-xl">Bistro Boss</a>
+        <h2 className="btn btn-ghost normal-case block text-left text-xl">
+          <strong className="text-3xl"> Bistro Boss</strong> <br /> Restaurant
+        </h2>
       </div>
       <div className="navbar-center hidden lg:flex">
         <ul className="menu menu-horizontal px-1">{navPatarn}</ul>

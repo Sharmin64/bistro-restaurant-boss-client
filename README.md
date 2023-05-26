@@ -10,6 +10,8 @@
 
 ## npm i react-parallax
 
+## npm i react-tabs
+
 ## 1. I created homepage with several components designed the ui gorgeously
 
 ## 2. It has two different pages from two different link of home page. one of them is home page including chef recommend order online testimonials and so on and another page including menubar
