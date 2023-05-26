@@ -18,7 +18,7 @@ export const router = createBrowserRouter([
         element: <MenuBar />,
       },
       {
-        path: "order",
+        path: "order/:category",
         element: <Order />,
       },
     ],
