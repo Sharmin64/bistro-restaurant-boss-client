@@ -7,12 +7,15 @@ import homeC from "../../../assets/home/homeC.png";
 import homeD from "../../../assets/home/homeD.jpg";
 import homeE from "../../../assets/home/homeE.png";
 import homeF from "../../../assets/home/homeF.png";
+import LazyLoad from "react-lazy-load";
 
 const Banner = () => {
   return (
     <Carousel>
       <div>
-        <img src={homeA} />
+        <LazyLoad height={762} offset={300}>
+          <img src={homeA} />
+        </LazyLoad>
       </div>
       <div>
         <img src={homeB} />
