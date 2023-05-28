@@ -2,6 +2,10 @@ import React from "react";
 
 const FoodCard = ({ item }) => {
   const { name, image, price, recipe } = item;
+
+  const handleAddToCart = (item) => {
+    console.log(item);
+  };
   return (
     <div className="card w-96 bg-base-100 shadow-xl">
       <figure>
@@ -14,7 +18,10 @@ const FoodCard = ({ item }) => {
         <h2 className="card-title text-center">{name}</h2>
         <p>{recipe}</p>
         <div className="card-actions justify-center">
-          <button className="btn btn-outline border-yellow-400 bg-slate-100 border-0 border-b-8">
+          <button
+            onClick={() => handleAddToCart(item)}
+            className="btn btn-outline border-yellow-400 bg-slate-100 border-0 border-b-8"
+          >
             Add to Cart
           </button>
         </div>

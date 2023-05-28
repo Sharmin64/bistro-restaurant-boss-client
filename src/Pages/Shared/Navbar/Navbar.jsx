@@ -1,5 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import { FaBeer, FaShoppingCart } from "react-icons/fa";
 
 const Navbar = () => {
   const navPatarn = (
@@ -15,6 +16,14 @@ const Navbar = () => {
       </li>
       <li>
         <Link to="/login">Login</Link>
+      </li>
+      <li>
+        <Link>
+          <button className="btn gap-2">
+            <FaShoppingCart style={{ fontSize: "1.5rem" }} />
+            <div className="badge badge-secondary">+0</div>
+          </button>
+        </Link>
       </li>
     </>
   );
