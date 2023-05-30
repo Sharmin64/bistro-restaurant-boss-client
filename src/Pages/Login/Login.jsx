@@ -1,41 +1,54 @@
-import React, { useContext, useEffect, useRef, useState } from "react";
-import { Link } from "react-router-dom";
-import { toast } from "react-toastify";
+import {useContext, useEffect, useState} from "react";
+import {Link, useLocation, useNavigate} from "react-router-dom";
+
 import {
   loadCaptchaEnginge,
   LoadCanvasTemplate,
   validateCaptcha,
 } from "react-simple-captcha";
-import { AuthContext } from "../../Providers/AuthProvider";
-import { Helmet } from "react-helmet-async";
+import {AuthContext} from "../../Providers/AuthProvider";
+import {Helmet} from "react-helmet-async";
+import Swal from "sweetalert2";
 
 const Login = () => {
-  const captchaRef = useRef();
   const [disabled, setDisabled] = useState(true);
+  const {signIn} = useContext(AuthContext);
+  const navigate = useNavigate();
+  const location = useLocation();
 
-  const { signIn } = useContext(AuthContext);
+  const from = location.state?.from?.pathname || "/";
   useEffect(() => {
-    loadCaptchaEnginge(7);
+    loadCaptchaEnginge(6);
   }, []);
   const handleLogin = (event) => {
     event.preventDefault();
     const form = event.target;
-    const name = form.name.value;
     const email = form.email.value;
     const password = form.password.value;
-    console.log(name, email, password);
-    toast("click the login button");
+    console.log(email, password);
     signIn(email, password).then((result) => {
       const user = result.user;
       console.log(user);
+      Swal.fire({
+        title: "User login Successful",
+        showClass: {
+          popup: "animate__animated animate__fadeInDown",
+        },
+        hideClass: {
+          popup: "animate__animated animate__fadeOutUp",
+        },
+      });
+      navigate(from, {replace: true});
     });
   };
 
   const handleValidateCaptcha = (e) => {
-    const user_captcha_value = captchaRef.current.value;
+    const user_captcha_value = e.target.value;
     if (validateCaptcha(user_captcha_value)) {
       setDisabled(false);
       //form.reset();
+    } else {
+      setDisabled(true);
     }
   };
   return (
@@ -92,18 +105,12 @@ const Login = () => {
                   <LoadCanvasTemplate />
                 </label>
                 <input
+                  onBlur={handleValidateCaptcha}
                   type="text"
-                  ref={captchaRef}
                   name="captcha"
                   placeholder="type the captcha above"
                   className="input input-bordered"
                 />
-                <button
-                  onClick={handleValidateCaptcha}
-                  className="btn btn-xs mt-2"
-                >
-                  Validate Captcha
-                </button>
               </div>
               <div className="form-control mt-6">
                 <input

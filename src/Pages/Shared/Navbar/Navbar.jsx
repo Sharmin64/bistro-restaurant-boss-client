@@ -1,9 +1,17 @@
-import React from "react";
-import { Link } from "react-router-dom";
-import { FaShoppingCart } from "react-icons/fa";
+import {useContext} from "react";
+import {Link} from "react-router-dom";
+import {FaShoppingCart} from "react-icons/fa";
 import useCart from "../../../hooks/useCart";
+import {AuthContext} from "../../../Providers/AuthProvider";
 
 const Navbar = () => {
+  const {user, logOut} = useContext(AuthContext);
+
+  const handleLogOut = () => {
+    logOut()
+      .then(() => {})
+      .catch((error) => console.log(error));
+  };
   const [cart] = useCart();
   const navPatarn = (
     <>
@@ -17,12 +25,28 @@ const Navbar = () => {
         <Link to="/order/salad">Order Food</Link>
       </li>
       <li>
-        <Link to="/login">Login</Link>
+        <Link to="/secret">SecretPage</Link>
       </li>
+
+      {user ? (
+        <>
+          <li>
+            <button onClick={handleLogOut} className="btn btn-ghost">
+              LogOut
+            </button>
+          </li>
+        </>
+      ) : (
+        <>
+          <li>
+            <Link to="/login">Login</Link>
+          </li>
+        </>
+      )}
       <li>
         <Link to="/dashboard/mycart">
           <button className="btn gap-2">
-            <FaShoppingCart style={{ fontSize: "1.5rem" }} />
+            <FaShoppingCart style={{fontSize: "1.5rem"}} />
             <div className="badge badge-secondary">+{cart?.length || 0}</div>
           </button>
         </Link>

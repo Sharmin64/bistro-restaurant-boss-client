@@ -1,4 +1,4 @@
-import { createBrowserRouter } from "react-router-dom";
+import {createBrowserRouter} from "react-router-dom";
 import Main from "../LayOut/Main/Main";
 import Home from "../Pages/Home/Home/Home";
 import MenuBar from "./../Pages/MenuBar/MenuBar/MenuBar";
@@ -8,6 +8,7 @@ import SignUp from "../Pages/SignUp/SignUp";
 import DashBoard from "../LayOut/Main/DashBoard/DashBoard";
 import MyCart from "../Pages/DashBoard/MyCart/MyCart";
 import PrivateRoute from "./PrivateRoute";
+import Secret from "../Pages/Shared/Secret/Secret";
 
 export const router = createBrowserRouter([
   {
@@ -27,12 +28,20 @@ export const router = createBrowserRouter([
         element: <Order />,
       },
       {
-        path: "/login",
+        path: "login",
         element: <Login />,
       },
       {
-        path: "/signup",
+        path: "signup",
         element: <SignUp />,
+      },
+      {
+        path: "secret",
+        element: (
+          <PrivateRoute>
+            <Secret />
+          </PrivateRoute>
+        ),
       },
     ],
   },

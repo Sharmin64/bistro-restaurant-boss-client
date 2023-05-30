@@ -1,15 +1,15 @@
-import React, { useContext } from "react";
-import { Helmet } from "react-helmet-async";
-import { useForm } from "react-hook-form";
-import { Link } from "react-router-dom";
-import { AuthContext } from "../../Providers/AuthProvider";
+import React, {useContext} from "react";
+import {Helmet} from "react-helmet-async";
+import {useForm} from "react-hook-form";
+import {Link} from "react-router-dom";
+import {AuthContext} from "../../Providers/AuthProvider";
 
 const SignUp = () => {
-  const { createUser } = useContext(AuthContext);
+  const {createUser} = useContext(AuthContext);
   const {
     register,
     handleSubmit,
-    formState: { errors },
+    formState: {errors},
     reset,
   } = useForm();
   const onSubmit = (data) => {
@@ -44,7 +44,7 @@ const SignUp = () => {
                 </label>
                 <input
                   type="text"
-                  {...register("name", { required: true })}
+                  {...register("name", {required: true})}
                   placeholder="name"
                   name="name"
                   className="input input-bordered"
@@ -60,7 +60,7 @@ const SignUp = () => {
                 <input
                   type="email"
                   placeholder="email"
-                  {...register("email", { required: true })}
+                  {...register("email", {required: true})}
                   name="email"
                   className="input input-bordered"
                 />
@@ -80,7 +80,7 @@ const SignUp = () => {
                     minLength: 6,
                     maxLength: 20,
                     pattern:
-                      /"^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]$"/,
+                      /"^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])$"/,
                   })}
                   name="password"
                   className="input input-bordered"
