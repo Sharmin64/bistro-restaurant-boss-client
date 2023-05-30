@@ -1,13 +1,13 @@
 import React from "react";
-import { useContext } from "react";
-import { AuthContext } from "./../../Providers/AuthProvider";
+import {useContext} from "react";
+import {AuthContext} from "./../../Providers/AuthProvider";
 import Swal from "sweetalert2";
-import { useLocation, useNavigate } from "react-router-dom";
+import {useLocation, useNavigate} from "react-router-dom";
 import useCart from "../../hooks/useCart";
 
-const FoodCard = ({ item }) => {
-  const { name, image, price, recipe, _id } = item;
-  const { user } = useContext(AuthContext);
+const FoodCard = ({item}) => {
+  const {name, image, price, recipe, _id} = item;
+  const {user} = useContext(AuthContext);
   const [, refetch] = useCart();
   const navigate = useNavigate();
   const location = useLocation();
@@ -36,7 +36,7 @@ const FoodCard = ({ item }) => {
             Swal.fire({
               imageUrl: "https://i.ibb.co/6Rs68kX/doll-6.jpg",
               title: "Food added to the cart",
-              imageHeight: 1500,
+              imageHeight: 500,
               imageAlt: "A tall image",
               timer: 2000,
             });
@@ -57,7 +57,7 @@ const FoodCard = ({ item }) => {
             "I am happy that You jumped into login page to buy food.",
             "success"
           );
-          navigate("/login", { state: { from: location } });
+          navigate("/login", {state: {from: location}});
         }
       });
     }

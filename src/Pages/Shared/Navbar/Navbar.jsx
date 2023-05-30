@@ -30,11 +30,11 @@ const Navbar = () => {
 
       {user ? (
         <>
-          <li>
-            <button onClick={handleLogOut} className="btn btn-ghost">
-              LogOut
-            </button>
-          </li>
+          <span>{user?.displayName}</span>
+
+          <button onClick={handleLogOut} className="btn btn-ghost">
+            LogOut
+          </button>
         </>
       ) : (
         <>

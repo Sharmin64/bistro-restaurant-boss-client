@@ -1,7 +1,7 @@
 import React from "react";
-import { Helmet } from "react-helmet-async";
+import {Helmet} from "react-helmet-async";
 import useCart from "../../../hooks/useCart";
-import { FaTrashAlt } from "react-icons/fa";
+import {FaTrashAlt} from "react-icons/fa";
 import Swal from "sweetalert2";
 
 const MyCart = () => {
@@ -20,7 +20,7 @@ const MyCart = () => {
     }).then((result) => {
       if (result.isConfirmed) {
         fetch(`http://localhost:5001/carts/${item._id}`, {
-          method: "DELETEF",
+          method: "DELETE",
         })
           .then((res) => res.json())
           .then((data) => {
