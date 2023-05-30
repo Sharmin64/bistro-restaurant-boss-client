@@ -1,6 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import { FaBeer, FaShoppingCart } from "react-icons/fa";
+import { FaShoppingCart } from "react-icons/fa";
 import useCart from "../../../hooks/useCart";
 
 const Navbar = () => {
@@ -20,7 +20,7 @@ const Navbar = () => {
         <Link to="/login">Login</Link>
       </li>
       <li>
-        <Link>
+        <Link to="/dashboard/mycart">
           <button className="btn gap-2">
             <FaShoppingCart style={{ fontSize: "1.5rem" }} />
             <div className="badge badge-secondary">+{cart?.length || 0}</div>
