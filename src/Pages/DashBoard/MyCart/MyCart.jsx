@@ -4,10 +4,17 @@ import useCart from "../../../hooks/useCart";
 import {FaTrashAlt} from "react-icons/fa";
 import Swal from "sweetalert2";
 
+
+
+
+
 const MyCart = () => {
   const [cart, refetch] = useCart();
-  console.log(cart);
   const total = cart.reduce((sum, item) => item.price + sum, 0);
+  console.log(total);
+  //const total = cart.reduce((sum, item) => item.price + sum, 0);
+
+  console.log(total);
   const handleDelete = (item) => {
     Swal.fire({
       title: "Are you sure?",
@@ -69,7 +76,7 @@ const MyCart = () => {
                   </div>
                 </td>
                 <td>{item.name}</td>
-                <td className="text-end">$ {item.price} </td>
+                <td className="text-end">${item.price} </td>
                 <td>
                   <button
                     onClick={() => handleDelete(item)}

@@ -11,12 +11,14 @@ import {
   FaWallet,
 } from "react-icons/fa";
 import useCart from "../../../hooks/useCart";
+import useAdmin from "../../../hooks/useAdmin";
 
 const DashBoard = () => {
   const [cart] = useCart();
 
   //? TODO: load data from the server to have dynamic isAdmin based on Data
-  const isAdmin = true;
+  //const isAdmin = true;
+  const [isAdmin] = useAdmin();
   return (
     <div className="drawer drawer-mobile">
       <input id="my-drawer-2" type="checkbox" className="drawer-toggle" />
@@ -47,13 +49,19 @@ const DashBoard = () => {
                 </NavLink>
               </li>
               <li>
-                <NavLink to="/dashboard/history">
+                <NavLink to="/dashboard/manageItem">
                   <FaWallet /> Manage Item
                 </NavLink>
               </li>
               <li>
                 <NavLink to="/dashboard/history">
                   <FaBook /> Manage Bookings
+                </NavLink>
+              </li>
+              <li>
+                <NavLink to="/dashboard/addItem">
+                  <FaBook />
+                  Add An Item
                 </NavLink>
               </li>
               <li>
