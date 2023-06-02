@@ -12,6 +12,7 @@ import Secret from "../Pages/Shared/Secret/Secret";
 import AllUsers from "../Pages/DashBoard/AllUsers/AllUsers";
 import AddItem from "../Pages/DashBoard/AddItem/AddItem";
 import AdminRoute from "./PrivateRoute";
+import ManageItems from "../Pages/DashBoard/ManageItems/ManageItems";
 
 export const router = createBrowserRouter([
   {
@@ -51,9 +52,9 @@ export const router = createBrowserRouter([
   {
     path: "dashboard",
     element: (
-      //<PrivateRoute>
+      <PrivateRoute>
         <DashBoard></DashBoard>
-      //</PrivateRoute>
+      </PrivateRoute>
     ),
     children: [
       {
@@ -67,9 +68,17 @@ export const router = createBrowserRouter([
       {
         path: "addItem",
         element: (
-          //<AdminRoute>
+          <AdminRoute>
             <AddItem />
-          //</AdminRoute>
+          </AdminRoute>
+        ),
+      },
+      {
+        path: "manageitems",
+        element: (
+          <AdminRoute>
+            <ManageItems />
+          </AdminRoute>
         ),
       },
     ],

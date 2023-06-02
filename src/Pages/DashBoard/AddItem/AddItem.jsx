@@ -117,7 +117,11 @@ const AddItem = () => {
             className="file-input file-input-bordered w-full "
           />
         </div>
-        <input className="btn btn-sm mt-4 w-full sm:w-full" type="submit" value="Add Item" />
+        <input
+          className="btn btn-sm mt-4 w-full sm:w-full"
+          type="submit"
+          value="Add Item"
+        />
       </form>
     </div>
   );

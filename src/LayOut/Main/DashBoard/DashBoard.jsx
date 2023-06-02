@@ -21,8 +21,8 @@ const DashBoard = () => {
   const [isAdmin] = useAdmin();
   return (
     <div className="drawer drawer-mobile">
-      <input id="my-drawer-2" type="checkbox" className="drawer-toggle" />
-      <div className="drawer-content flex flex-col items-center justify-center">
+      <div className="drawer-content">
+        <input id="my-drawer-2" type="checkbox" className="drawer-toggle" />
         <Outlet />
         <label
           htmlFor="my-drawer-2"
@@ -49,7 +49,7 @@ const DashBoard = () => {
                 </NavLink>
               </li>
               <li>
-                <NavLink to="/dashboard/manageItem">
+                <NavLink to="/dashboard/manageitems">
                   <FaWallet /> Manage Item
                 </NavLink>
               </li>
