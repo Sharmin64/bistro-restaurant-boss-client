@@ -3,13 +3,11 @@ import {Helmet} from "react-helmet-async";
 import useCart from "../../../hooks/useCart";
 import {FaTrashAlt} from "react-icons/fa";
 import Swal from "sweetalert2";
-
-
-
-
+import {Link} from "react-router-dom";
 
 const MyCart = () => {
   const [cart, refetch] = useCart();
+  console.log(cart);
   const total = cart.reduce((sum, item) => item.price + sum, 0);
   console.log(total);
   //const total = cart.reduce((sum, item) => item.price + sum, 0);
@@ -40,14 +38,16 @@ const MyCart = () => {
     });
   };
   return (
-    <div className="w-full">
+    <div className="w-full ">
       <Helmet>
         <title>Bistro Boss | My Cart</title>
       </Helmet>
-      <div className="uppercase font-semibold h-[60px] flex justify-evenly items-center">
+      <div className="uppercase font-semibold lg:flex flex-col justify-evenly items-center">
         <h1 className="text-3xl">Total Items: {cart.length} </h1>
         <h1 className="text-3xl">Total Price: ${total} </h1>
-        <button className="btn btn-warning btn-sm">PAY</button>
+        <Link to="/dashboard/payment">
+          <button className="btn btn-warning btn-sm">PAY</button>
+        </Link>
       </div>
       <div className="overflow-x-auto w-full">
         <table className="table w-full">
